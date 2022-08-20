@@ -67,6 +67,33 @@ const uint8_t megalovania_durs[345] PROGMEM = {
 };
 music_t megalovania = {megalovania_notes, megalovania_durs, 2000, 2, 344};
 
+const uint8_t imperial_march_notes[67] PROGMEM = {
+  NI_A4, NI_A4, NI_A4, NI_A4, NI_A4, NI_A4, NI_F4, NI_PAUSE, 
+  NI_A4, NI_A4, NI_A4, NI_A4, NI_A4, NI_A4, NI_F4, NI_PAUSE, 
+  NI_A4, NI_A4, NI_A4, NI_F4, NI_C5,
+
+  NI_A4, NI_F4, NI_C5, NI_A4,
+  NI_E5, NI_E5, NI_E5, NI_F5, NI_C5,
+  NI_A4, NI_F4, NI_C5, NI_A4
+  /*
+  NI_A5,4, NI_A4,-8, NI_A4,16, NI_A5,4, NI_GS5,-8, NI_G5,16, //7 
+  NI_DS5,16, NI_D5,16, NI_DS5,8, REST,8, NI_A4,8, NI_DS5,4, NI_D5,-8, NI_CS5,16,
+
+  NI_C5,16, NI_B4,16, NI_C5,16, REST,8, NI_F4,8, NI_GS4,4, NI_F4,-8, NI_A4,-16,//9
+  NI_C5,4, NI_A4,-8, NI_C5,16, NI_E5,2,
+
+  NI_A5,4, NI_A4,-8, NI_A4,16, NI_A5,4, NI_GS5,-8, NI_G5,16, //7 
+  NI_DS5,16, NI_D5,16, NI_DS5,8, REST,8, NI_A4,8, NI_DS5,4, NI_D5,-8, NI_CS5,16,
+
+  NI_C5,16, NI_B4,16, NI_C5,16, REST,8, NI_F4,8, NI_GS4,4, NI_F4,-8, NI_A4,-16,//9
+  NI_A4,4, NI_F4,-8, NI_C5,16, NI_A4,2,
+  */
+};
+const uint8_t imperial_march_durs[67] PROGMEM = {
+  33, 33, 128, 128, 128, 128, 64, 64, 33, 33, 128, 128, 128, 128, 64, 64, 32, 32, 32, 132, 128, 32, 64, 128, 16, 32, 32, 32, 64, 128, 32, 64, 128, 9
+};
+music_t imperial_march = {imperial_march_notes, imperial_march_durs, 28800, 1, 34};
+
 
 uint16_t prevThrottle = 0;
 uint16_t prevThrottleRaw = 0;
@@ -168,6 +195,11 @@ void changeMode() {
     case 6: {
         // Music: Megalovania
         setMusic(&megalovania);
+        break;
+      }
+    case 7: {
+        // Music: Imperial March
+        setMusic(&imperial_march);
         break;
       }
   }
